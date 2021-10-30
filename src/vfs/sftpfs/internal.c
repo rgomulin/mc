@@ -390,7 +390,6 @@ sftpfs_symlink (const vfs_path_t * vpath1, const vfs_path_t * vpath2, GError ** 
     const GString *ctmp_path;
     char *tmp_path;
     unsigned int tmp_path_len;
-    const GString *fixfname;
     int res;
 
     if (!sftpfs_op_init (&super, &path_element2, vpath2, mcerror))
@@ -403,8 +402,6 @@ sftpfs_symlink (const vfs_path_t * vpath1, const vfs_path_t * vpath2, GError ** 
     path_element1 = vfs_path_get_by_index (vpath1, -1);
     path1 = path_element1->path;
     path1_len = strlen (path1);
-
-    fixfname = sftpfs_fix_filename (path_element1->path);
 
     do
     {
