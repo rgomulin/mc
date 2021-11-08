@@ -303,6 +303,8 @@ static key_define_t xterm_key_defines[] = {
     {KEY_F (9), ESC_STR "[20~", MCKEY_NOACTION},
     {KEY_F (10), ESC_STR "[21~", MCKEY_NOACTION},
 
+    {KEY_HOME, ESC_STR "[1~", MCKEY_NOACTION},
+
     /* old xterm Shift-arrows */
     {KEY_M_SHIFT | KEY_UP, ESC_STR "O2A", MCKEY_NOACTION},
     {KEY_M_SHIFT | KEY_DOWN, ESC_STR "O2B", MCKEY_NOACTION},
