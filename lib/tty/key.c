@@ -93,7 +93,7 @@ int mou_auto_repeat = 100;
 int double_click_speed = 250;
 gboolean old_esc_mode = TRUE;
 /* timeout for old_esc_mode in usec */
-int old_esc_mode_timeout = 1000000;     /* settable via env */
+int old_esc_mode_timeout = 1000*1000;     /* settable via env - menu->options->configuration */
 gboolean use_8th_bit_as_meta = FALSE;
 
 gboolean bracketed_pasting_in_progress = FALSE;

@@ -555,7 +555,7 @@ find_parm_callback (Widget * w, Widget * sender, widget_msg_t msg, int parm, voi
  * If the return value is TRUE, then the following holds:
  *
  * start_dir, ignore_dirs, pattern and content contain the information provided by the user.
- * They are newly allocated strings and must be freed when uneeded.
+ * They are newly allocated strings and must be freed when unneeded.
  *
  * start_dir_len is -1 when user entered an absolute path, otherwise it is a length
  * of start_dir (which is absolute). It is used to get a relative pats of find results.
@@ -1212,7 +1212,7 @@ find_ignore_dir_search (const char *dir)
             {
             case 0:            /* both paths are relative */
             case 3:            /* both paths are abolute */
-                /* if ignore dir is not a path  of dir -- skip it */
+                /* if ignore dir is not a path of dir -- skip it */
                 if (strncmp (dir, *ignore_dir, ilen) == 0)
                 {
                     /* be sure that ignore dir is not a part of dir like:
@@ -1272,6 +1272,7 @@ do_search (WDialog * h)
     struct stat tmp_stat;
     gsize bytes_found;
     unsigned short count;
+    const unsigned short max_loop_count = 32; // Initially, it was 32. What is it?
 
     if (h == NULL)
     {                           /* someone forces me to close dirp */
@@ -1285,7 +1286,7 @@ do_search (WDialog * h)
         return 1;
     }
 
-    for (count = 0; count < 32; count++)
+    for (count = 0; count < max_loop_count; count++)
     {
         while (dp == NULL)
         {
